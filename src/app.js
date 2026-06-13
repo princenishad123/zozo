@@ -1,6 +1,7 @@
 
 import express from "express";
 import cors from "cors";
+import { welcomPage } from "./template.js";
 
 const app = express();
 const PORT = 8080;
@@ -15,11 +16,7 @@ app.use(cors({
 
 app.get("/",(req,res)=>{
 
-    res.send(`
-        <h1>
-        Welcome to home page.
-        </h1>
-        `)
+    res.send(welcomPage)
 
 })
 
