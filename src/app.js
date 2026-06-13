@@ -1,0 +1,48 @@
+
+import express from "express";
+import cors from "cors";
+
+const app = express();
+const PORT = 8080;
+
+app.use(express.json())
+app.use(express.urlencoded({extended:true}));
+app.use(cors({
+    origin:['*'],
+    credentials:true
+}));
+
+
+app.get("/",(req,res)=>{
+
+    res.send(`
+        <h1>
+        Welcome to home page.
+        </h1>
+        `)
+
+})
+
+
+
+app.get("/login",(req,res)=>{
+
+    res.send(`
+        <h1 style="color:red">
+         Login to access your account .
+        </h1>
+        `)
+
+})
+app.get("/signup",(req,res)=>{
+
+    res.send(`
+        <h1 style="color:red">
+         Create an account .
+        </h1>
+        `)
+
+})
+
+
+app.listen(PORT,()=>console.log(`server running on ${PORT}`))
