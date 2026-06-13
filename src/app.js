@@ -6,6 +6,8 @@ import { welcomPage } from "./template.js";
 const app = express();
 const PORT = 8080;
 
+const envTest = process.env.TEST_ENV || "no access"
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
@@ -26,7 +28,7 @@ app.get("/login",(req,res)=>{
 
     res.send(`
         <h1 style="color:red">
-         Login to access your account .
+         Login to access your account ${envTest} .
         </h1>
         `)
 
